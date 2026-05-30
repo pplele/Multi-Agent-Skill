@@ -3,33 +3,33 @@
   <p align="center">作者：<a href="https://github.com/pplele">二十八画生</a></p>
   <p align="center">
     一个 Claude Code Skill，把 Claude 变成你的完整开发团队。<br/>
-    PM（产品经理）写 PRD，TechLead（技术负责人）做架构和编码，QA（测试工程师）审查和测试，修复工程师专门修 Bug。<br/>
+    项目负责人统一调度，PM（产品经理）写 PRD，TechLead（技术负责人）做架构和编码，QA（测试工程师）审查和测试，修复工程师专门修 Bug。<br/>
     每个阶段都有人工确认检查点，你始终掌控全局。
   </p>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/平台-Claude%20Code-blue" alt="平台: Claude Code">
-  <img src="https://img.shields.io/badge/版本-4.3-blue" alt="版本 4.3">
+  <img src="https://img.shields.io/badge/版本-4.4-blue" alt="版本 4.4">
   <img src="https://img.shields.io/badge/许可-MIT-green" alt="许可: MIT">
-  <img src="https://img.shields.io/badge/角色-4-orange" alt="4 个角色">
+  <img src="https://img.shields.io/badge/角色-5-orange" alt="5 个角色">
 </p>
 
 ---
 
 ## 这是什么？
 
-一个 **Claude Code Skill** — 就是一个 Markdown 文件，能让 Claude Code 扮演一个完整的开发团队。不需要外部工具、不需要 Python 运行时、不需要 LangGraph。Claude Code 读取 Skill 定义后，在 PM（产品经理）、TechLead（技术负责人）、QA（测试工程师）、修复工程师四个专业角色之间轮换，驱动完整的软件开发生命周期。
+一个 **Claude Code Skill** — 就是一个 Markdown 文件，能让 Claude Code 扮演一个完整的开发团队。不需要外部工具、不需要 Python 运行时、不需要 LangGraph。Claude Code 读取 Skill 定义后，由项目负责人统一调度 PM（产品经理）、TechLead（技术负责人）、QA（测试工程师）、修复工程师，驱动完整的软件开发生命周期。
 
 **痛点：** 一个人写代码，容易漏需求、跳设计、代码风格不一致、上线前不测试。你需要一个团队，但你没有。
 
-**解决：** 这个 Skill 赋予 Claude Code 四个专业角色和一个严格的 7 阶段工作流。新项目从零搭建、已有项目加功能改代码，都走同一套流程。它像虚拟开发团队一样强制结构化推进，而你在每个阶段转换时都拥有确认权。
+**解决：** 这个 Skill 赋予 Claude Code 五个专业角色（含项目负责人统一调度）和一个严格的 7 阶段工作流。新项目从零搭建、已有项目加功能改代码，都走同一套流程。它像虚拟开发团队一样强制结构化推进，而你在每个阶段转换时都拥有确认权。
 
 ## 为什么用它？
 
 | 不用 Skill | 用了 Skill |
 |---|---|
-| Claude 上来就写代码 | PM 先澄清需求 |
+| 用户说什么 Claude 直接改，不走流程 | 项目负责人拦截判断，该找 PM 找 PM，该修 Bug 修 Bug |
 | 没有架构规划 | TechLead 输出 Mermaid 架构图 + 技术选型对比 |
 | 前端千篇一律 | 每个 UI 模块附带设计决策说明 |
 | 前后端各写各的 | 先协商接口契约再动手写代码 |
@@ -102,7 +102,12 @@
      └─────────────────────────────────────────────┘
 ```
 
-## 四个角色
+## 五个角色
+
+### 项目负责人（调度者）
+- 不写代码不画架构 — 只管接收用户输入，判断意图，派给正确的人
+- 用户在编码阶段说"帮我加个导出"→ 拦截，转 PM："这是需求变更，不是修 Bug"
+- 所有执行角色通过项目负责人交接，不直接跳转
 
 ### PM（产品经理）
 - 通过结构化问答澄清需求
@@ -288,7 +293,7 @@ cp .claude/skills/dev-team.md ~/.claude/skills/dev-team.md
 ## 常见问题
 
 **Q: 能用于已有项目吗？加功能、改代码可以吗？**
-可以。v4.3 起支持「已有项目修改模式」。在已有代码目录调用 `/dev-team` 时，TechLead 先做代码库侦查，输出项目基线报告，然后 PM 基于现有架构做增量需求澄清。从加一个字段到重构一个模块，都走完整流程。
+可以。v4.4 起支持「已有项目修改模式」。在已有代码目录调用 `/dev-team` 时，TechLead 先做代码库侦查，输出项目基线报告，然后 PM 基于现有架构做增量需求澄清。从加一个字段到重构一个模块，都走完整流程。
 
 **Q: 需要安装 Python、LangGraph 或其他运行时吗？**
 不需要。零依赖。Claude Code 自己读取 Skill 定义并轮换角色，纯 Markdown 驱动。

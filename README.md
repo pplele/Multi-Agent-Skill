@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/平台-Claude%20Code-blue" alt="平台: Claude Code">
-  <img src="https://img.shields.io/badge/版本-4.0-blue" alt="版本 4.0">
+  <img src="https://img.shields.io/badge/版本-4.2-blue" alt="版本 4.2">
   <img src="https://img.shields.io/badge/许可-MIT-green" alt="许可: MIT">
   <img src="https://img.shields.io/badge/角色-3-orange" alt="3 个角色">
 </p>
@@ -23,7 +23,7 @@
 
 **痛点：** 一个人写代码，容易漏需求、跳设计、代码风格不一致、上线前不测试。你需要一个团队，但你没有。
 
-**解决：** 这个 Skill 赋予 Claude Code 三个专业角色和一个严格的 7 阶段工作流。它像虚拟开发团队一样强制结构化推进，而你在每个阶段转换时都拥有确认权。
+**解决：** 这个 Skill 赋予 Claude Code 三个专业角色和一个严格的 7 阶段工作流。新项目从零搭建、已有项目加功能改代码，都走同一套流程。它像虚拟开发团队一样强制结构化推进，而你在每个阶段转换时都拥有确认权。
 
 ## 为什么用它？
 
@@ -40,7 +40,15 @@
 
 ```
 你说："/dev-team 帮我做一个任务管理应用，带用户登录"
+或者："/dev-team 帮我给现有项目加一个评论功能"
 
+     ┌─────────────────────────────────────────────┐
+     │  🔍 阶段0：项目探测                        │
+     │  检测当前目录是否有项目代码                  │
+     │  新项目 → PM 需求澄清                       │
+     │  已有项目 → TechLead 代码库侦查 → PM        │
+     └──────────────┬──────────────────────────────┘
+                    ↓
      ┌─────────────────────────────────────────────┐
      │  🎯 阶段1：PM 需求澄清                      │
      │  "目标用户是谁？核心功能有哪些？             │
@@ -211,6 +219,8 @@ cp .claude/skills/dev-team.md ~/.claude/skills/dev-team.md
 帮我做一个带 Stripe 支付的 SaaS 账单面板
 创建一个有库存管理的电商平台
 开发一个实时聊天应用
+帮我给现有项目加一个评论功能
+修改用户认证模块，支持 OAuth 登录
 ```
 
 ## 确认命令速查
@@ -268,6 +278,9 @@ cp .claude/skills/dev-team.md ~/.claude/skills/dev-team.md
 ```
 
 ## 常见问题
+
+**Q: 能用于已有项目吗？加功能、改代码可以吗？**
+可以。v4.2 起支持「已有项目修改模式」。在已有代码目录调用 `/dev-team` 时，TechLead 先做代码库侦查，输出项目基线报告，然后 PM 基于现有架构做增量需求澄清。从加一个字段到重构一个模块，都走完整流程。
 
 **Q: 需要安装 Python、LangGraph 或其他运行时吗？**
 不需要。零依赖。Claude Code 自己读取 Skill 定义并轮换角色，纯 Markdown 驱动。

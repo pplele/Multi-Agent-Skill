@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/平台-Claude%20Code-blue" alt="平台: Claude Code">
-  <img src="https://img.shields.io/badge/版本-4.4-blue" alt="版本 4.4">
+  <img src="https://img.shields.io/badge/版本-4.5-blue" alt="版本 4.5">
   <img src="https://img.shields.io/badge/许可-MIT-green" alt="许可: MIT">
   <img src="https://img.shields.io/badge/角色-5-orange" alt="5 个角色">
 </p>

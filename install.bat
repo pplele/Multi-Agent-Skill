@@ -16,6 +16,6 @@ if not exist "%SKILL_SRC%" (
 
 copy /Y "%SKILL_SRC%" "%SKILL_DIR%\dev-team.md"
 
-echo dev-team skill v4.4 已安装到 %SKILL_DIR%\dev-team.md
+echo dev-team skill v5.0 已安装到 %SKILL_DIR%\dev-team.md
 echo 现在在所有项目中输入 /dev-team 即可使用。
 pause
